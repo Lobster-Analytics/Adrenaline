@@ -1,5 +1,5 @@
 
-import customtkinter
+import customtkinter as ctk
 
 from menu_bar import MenuBar
 from slider_section import SliderSection
@@ -7,7 +7,7 @@ from slider_section import SliderSection
 class Main:
 
     def __init__(self) -> None:
-        self.root = customtkinter.CTk()
+        self.root = ctk.CTk()
 
         self.config_window()
         self.config_color()
@@ -29,8 +29,8 @@ class Main:
 
 
     def config_color(self) -> None:
-        customtkinter.set_default_color_theme("red.json")
-        customtkinter.set_appearance_mode("dark")
+        ctk.set_default_color_theme("red.json")
+        ctk.set_appearance_mode("dark")
 
 
     def config_window_title(self) -> None:
@@ -42,11 +42,11 @@ class Main:
 
 
     def add_menu_bar(self) -> None:
-        self.menu_bar = MenuBar(self.root)
+        self.menu_bar = MenuBar(self.root, self.width)
 
 
     def add_slider_section(self) -> None:
-        self.slider_section = SliderSection(self.root)
+        self.slider_section = SliderSection(self.root, self.width, self.height, self.menu_bar.height)
 
 
     def run(self) -> None:
